@@ -2,7 +2,7 @@
   <div>
     <b-row>
       <b-col cols="8">
-        <login-form class="form"></login-form>
+        <login-form class="form" v-on:commit-login="login($event)"></login-form>
       </b-col>
       <b-col cols="4">
         <img class="logo" alt="Vue logo" src="../assets/fridge.svg">
@@ -28,6 +28,9 @@ export default {
   name: "Login",
   components: {
     LoginForm
+  },
+  methods: {
+    login: function(payload) {}
   }
 };
 </script>

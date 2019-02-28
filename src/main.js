@@ -5,6 +5,11 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
+// VUE-AXIOS
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
+
 // BOOTSTRAP-VUE
 import BootstrapVue from "bootstrap-vue";
 Vue.use(BootstrapVue);
@@ -15,6 +20,8 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "vue-awesome/icons";
 import Icon from "vue-awesome/components/Icon";
 Vue.component("v-icon", Icon);
+
+axios.defaults.withCredentials = true;
 
 new Vue({
 	router,

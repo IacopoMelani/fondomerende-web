@@ -11,7 +11,7 @@
 
     <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0" v-model="remember">Remember me</b-form-checkbox>
 
-    <b-button variant="primary">Save</b-button>
+    <b-button variant="primary" @click="commitLogin()">Save</b-button>
   </b-form>
 </template>
 
@@ -27,6 +27,15 @@ export default {
       password: "",
       remember: false
     };
+  },
+  methods: {
+    commitLogin: function() {
+      this.$emit("commit-login", {
+        username: this.username,
+        password: this.password,
+        remember: this.remember
+      });
+    }
   }
 };
 </script>

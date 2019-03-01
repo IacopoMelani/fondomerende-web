@@ -24,6 +24,19 @@ export default new Vuex.Store({
 		}
 	},
 	actions: {
-		login: function() {}
+		login: function(context, payload) {
+			if (this.state.user.attemptLogin.requestLoading) {
+				return;
+			}
+			this.state.user.attemptLogin.requestLoading = true;
+			this.axios
+				.post("/login", {})
+				.then(result => {
+					console.log(result);
+				})
+				.catch(err => {
+					console.log(err);
+				});
+		}
 	}
 });

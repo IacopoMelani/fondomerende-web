@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import axios from "axios";
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -15,12 +17,22 @@ export default new Vuex.Store({
 				requestLoading: false,
 				successResponse: ""
 			},
+			data: {},
 			token: ""
 		}
 	},
 	mutations: {
-		changeLoginRequestLoading: function(state) {
-			state.user.attemptLogin.requestLoading = !state.user.attemptLogin.requestLoading;
+		loginRequestLoading: function(state) {
+			state.user.attemptLogin.requestLoading = true;
+		},
+		userLoginError: function(state) {
+			state.user.attemptLogin.requestLoading = false;
+			state.user.attemptLogin.failedResponse = "Errore: richiesta scaduta";
+		},
+		userLoginSuccess: function(state, payload) {
+			state.user.attemptLogin.requestLoading = false;
+			state.user.attemptLogin.successResponse = payload.response.message;
+			state.user.token = payload.response.data.token;
 		}
 	},
 	actions: {
@@ -28,14 +40,14 @@ export default new Vuex.Store({
 			if (this.state.user.attemptLogin.requestLoading) {
 				return;
 			}
-			this.state.user.attemptLogin.requestLoading = true;
-			this.axios
-				.post("/login", {})
+			context.commit("loginRequestLoading");
+			axios
+				.post("/login", payload)
 				.then(result => {
-					console.log(result);
+					this.commit("userLoginSuccess", result);
 				})
-				.catch(err => {
-					console.log(err);
+				.catch(() => {
+					this.commit("userLoginError");
 				});
 		}
 	}

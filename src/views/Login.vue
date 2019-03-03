@@ -1,24 +1,30 @@
 <template>
-  <div>
-    <b-row>
-      <b-col cols="8">
-        <login-form class="form" v-on:commit-login="login($event)"></login-form>
-      </b-col>
-      <b-col cols="4">
-        <img class="logo" alt="Vue logo" src="../assets/fridge.svg">
-      </b-col>
-    </b-row>
-  </div>
+  <b-row>
+    <b-col cols="12 logo-container">
+      <img class="logo" alt="Vue logo" src="../assets/fridge.svg">
+    </b-col>
+    <b-col cols="12 login-form">
+      <login-form v-on:commit-login="login($event)"></login-form>
+    </b-col>
+  </b-row>
 </template>
 
 <style scoped>
-.logo {
-  height: 512px;
-  width: 512px;
-}
-.form {
+.login-form {
+  align-items: center;
   justify-content: center;
+  margin-top: 20px;
   width: 100%;
+}
+.logo {
+  height: 312px;
+  width: 312px;
+}
+.logo-container {
+  align-items: center;
+  background-color: antiquewhite;
+  height: 500px;
+  justify-content: center;
 }
 </style>
 
@@ -30,7 +36,9 @@ export default {
     LoginForm
   },
   methods: {
-    login: function(payload) {}
+    login: function(payload) {
+      this.$store.dispatch("login", payload);
+    }
   }
 };
 </script>

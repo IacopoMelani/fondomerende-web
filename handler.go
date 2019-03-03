@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"net/http"
+	"net/url"
 
 	"github.com/labstack/echo"
 )
@@ -43,9 +44,16 @@ func login(c echo.Context) error {
 
 	body["command-name"] = "login"
 
-	jsonValue, _ := json.Marshal(body)
+	form := url.Values{}
 
-	req, err := http.NewRequest("POST", "http://185.56.219.108:8001/process-request.php", bytes.NewBuffer(jsonValue))
+	form.Add("command-name", body["command-name"].(string))
+	form.Add("name", body["username"].(string))
+	form.Add("password", body["password"].(string))
+
+	//jsonValue, _ := json.Marshal(body)
+
+	req, err := http.NewRequest("POST", "http://185.56.219.108:8001/process-request.php", bytes.NewBufferString(form.Encode()))
+
 	if err != nil {
 		return c.JSON(500, &response{
 			Status:  2,
@@ -55,6 +63,7 @@ func login(c echo.Context) error {
 	}
 
 	req.Header.Set("Cookie", "auth-key=bomba")
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded; param=value")
 
 	client := &http.Client{}
 

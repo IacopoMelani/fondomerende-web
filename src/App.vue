@@ -19,3 +19,15 @@
 
 @import url("./assets/css/main.css");
 </style>
+
+<script>
+export default {
+  name: "App",
+  created() {
+    if (localStorage.getItem("token") != "") {
+      this.$store.dispatch("setToken", localStorage.getItem("token"));
+    }
+  }
+};
+</script>
+

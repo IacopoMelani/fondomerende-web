@@ -30,6 +30,9 @@
 
 <script>
 import LoginForm from "./viewComponents/Login/LoginForm";
+
+import router from "./../router.js";
+
 export default {
   name: "Login",
   components: {
@@ -39,6 +42,13 @@ export default {
     login: function(payload) {
       this.$store.dispatch("login", payload);
     }
+  },
+  mounted() {
+    this.$store.dispatch("checkToken").then(result => {
+      if (result) {
+        router.push({ name: "home" });
+      }
+    });
   }
 };
 </script>

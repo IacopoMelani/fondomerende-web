@@ -20,7 +20,7 @@ export default new Vuex.Store({
 				successResponse: ""
 			},
 			data: {},
-			token: ""
+			token: null
 		}
 	},
 	mutations: {
@@ -47,7 +47,7 @@ export default new Vuex.Store({
 	},
 	actions: {
 		checkToken: function() {
-			if (this.state.user.token != "") {
+			if (this.state.user.token != null) {
 				return true;
 			}
 			return false;

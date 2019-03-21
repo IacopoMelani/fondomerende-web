@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"fondomerende-web/config"
 	"fondomerende-web/models"
 	"net/http"
 
@@ -11,9 +12,13 @@ import (
 // GetLastAction - metodo che richiama il servizio remoto per richiedere le ultime azioni
 func GetLastAction(c echo.Context) error {
 
+	config := config.GetInstance()
+
 	token := c.Request().Header.Get("token")
 
-	req, err := http.NewRequest("GET", "http://185.56.219.108:8001/process-request.php?command-name=get-last-actions", nil)
+	URLRequest := config.GetRemoteURL()
+
+	req, err := http.NewRequest("GET", URLRequest+"/process-request.php?command-name=get-last-actions", nil)
 	if err != nil {
 		return c.JSON(500, &models.Response{
 			Status:  1,
@@ -22,7 +27,7 @@ func GetLastAction(c echo.Context) error {
 		})
 	}
 
-	req.Header.Set("Cookie", "auth-key=bomba;token="+token)
+	req.Header.Set("Cookie", "auth-key="+config.RemoteAuthKey+";token="+token)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded; param=value")
 
 	client := http.Client{}

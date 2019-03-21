@@ -1,34 +1,52 @@
 package main
 
 import (
+	"fmt"
+	"fondomerende-web/config"
 	"fondomerende-web/controllers"
+	"sync"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
+	"github.com/subosito/gotenv"
 )
-
-type response struct {
-	Status  int    `json:"status"`
-	Success bool   `json:"Success"`
-	Message string `json:"Message"`
-}
-type httpResponse struct {
-	Response interface{} `json:"response"`
-	Data     interface{} `json:"data"`
-}
 
 func main() {
 
-	e := echo.New()
+	var e *echo.Echo
 
-	e.Use(middleware.Recover())
+	var wg sync.WaitGroup
 
-	e.Static("*", "dist/")
+	wg.Add(2)
 
-	e.GET("/getLastActions", controllers.GetLastAction)
+	go func() {
+		defer wg.Done()
+		fmt.Println("Config - Inizializzo configurazione")
+		gotenv.Load()
+		config.Init()
+	}()
+	go func() {
+		defer wg.Done()
 
-	e.POST("/login", controllers.Login)
+		fmt.Println("Echo - inizializzo ECHO")
+		e = echo.New()
 
+		fmt.Println("Echo - Carico middlware")
+		e.Use(middleware.Recover())
+
+		fmt.Println("Echo - Carico risorse statiche")
+		e.Static("*", "dist/")
+
+		fmt.Println("Echo - Inizializzo rotte")
+		e.GET("/getLastActions", controllers.GetLastAction)
+		e.POST("/login", controllers.Login)
+	}()
+
+	wg.Wait()
+
+	config := config.GetInstance()
+
+	fmt.Println("here we go!")
 	// Start server
-	e.Logger.Fatal(e.Start(":8888"))
+	e.Logger.Fatal(e.Start(config.AppPort))
 }

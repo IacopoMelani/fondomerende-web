@@ -3,6 +3,7 @@ package controllers
 import (
 	"bytes"
 	"encoding/json"
+	"fondomerende-web/config"
 	"fondomerende-web/models"
 	"net/http"
 	"net/url"
@@ -12,6 +13,9 @@ import (
 
 // Login - metodo per richiamare il servizio remoto di login
 func Login(c echo.Context) error {
+
+	config := config.GetInstance()
+
 	body := make(map[string]interface{})
 	err := json.NewDecoder(c.Request().Body).Decode(&body)
 	if err != nil {
@@ -32,7 +36,9 @@ func Login(c echo.Context) error {
 
 	//jsonValue, _ := json.Marshal(body)
 
-	req, err := http.NewRequest("POST", "http://185.56.219.108:8001/process-request.php", bytes.NewBufferString(form.Encode()))
+	URLRequest := config.GetRemoteURL()
+
+	req, err := http.NewRequest("POST", URLRequest+"/process-request.php", bytes.NewBufferString(form.Encode()))
 
 	if err != nil {
 		return c.JSON(500, &models.Response{
@@ -42,7 +48,7 @@ func Login(c echo.Context) error {
 		})
 	}
 
-	req.Header.Set("Cookie", "auth-key=bomba")
+	req.Header.Set("Cookie", "auth-key="+config.RemoteAuthKey)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded; param=value")
 
 	client := &http.Client{}

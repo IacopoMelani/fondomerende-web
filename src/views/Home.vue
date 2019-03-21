@@ -19,7 +19,14 @@
           </li>
         </ul>
       </b-col>
-      <b-col class="centered" cols="5">ultime azioni</b-col>
+      <b-col class="centered" cols="5">
+        <b-row>
+          <b-col class="last-action-label" cols="12">ultime azioni</b-col>
+          <b-col cols="12">
+            <LastActions></LastActions>
+          </b-col>
+        </b-row>
+      </b-col>
     </b-row>
   </b-container>
 </template>
@@ -34,6 +41,9 @@ ul {
 .centered {
   justify-content: center;
 }
+.last-action-label {
+  justify-content: center;
+}
 .menu {
   margin: 0;
   padding: 0;
@@ -45,7 +55,17 @@ ul {
 }
 </style>
 <script>
+import LastActions from "./viewComponents/lastActions/LastActions";
 export default {
-  name: "home"
+  name: "home",
+  components: {
+    LastActions
+  },
+  mounted: function() {
+    this.$store.dispatch("getLastActions");
+    setInterval(() => {
+      this.$store.dispatch("getLastActions");
+    }, 5000);
+  }
 };
 </script>

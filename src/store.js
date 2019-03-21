@@ -12,10 +12,10 @@ export default new Vuex.Store({
 		actions: {
 			getLastActions: {
 				failedResponse: "",
-				lastActionList: [],
 				requestLoading: false,
 				successResponse: ""
-			}
+			},
+			lastActionList: []
 		},
 		user: {
 			attemptLogin: {
@@ -59,7 +59,7 @@ export default new Vuex.Store({
 		 */
 		getLastActionsSuccess: function(state, payload) {
 			state.actions.getLastActions.requestLoading = false;
-			state.actions.getLastActions.lastActionList = payload.actions;
+			state.actions.lastActionList = payload.actions;
 		},
 		/**
 		 * Mutator per cambiare per rendere bloccante la richiesta verso il servizio /login
@@ -121,16 +121,16 @@ export default new Vuex.Store({
 		 * @param {object} context
 		 * @param {object} payload
 		 */
-		getLastActions: function(context, payload) {
+		getLastActions: function(context) {
 			if (this.state.actions.getLastActions.requestLoading) {
 				return;
 			}
 			context.commit("getLastActionRequestLoading");
 			axios
-				.get("/getLastActions", {headers: {token: payload.token}})
+				.get("/getLastActions", {headers: {token: this.state.user.token}})
 				.then(result => {
-					if (result.data && result.data.requestLoading.success && result.data.data) {
-						this.commit("getLastActionsSuccess", result.data);
+					if (result.data && result.data.response.success && result.data.data) {
+						this.commit("getLastActionsSuccess", result.data.data);
 					} else {
 						this.commit("getLastActionsFailed", result.data.response.message);
 					}

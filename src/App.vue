@@ -15,6 +15,11 @@
   color: #2c3e50;
   margin-bottom: 20px;
 }
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
 
 @import url("./assets/css/main.css");
 </style>

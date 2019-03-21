@@ -13,7 +13,7 @@ func GetLastAction(c echo.Context) error {
 
 	token := c.Request().Header.Get("token")
 
-	req, err := http.NewRequest("GET", "http://185.56.219.108:8001/process-request.php", nil)
+	req, err := http.NewRequest("GET", "http://185.56.219.108:8001/process-request.php?command-name=get-last-actions", nil)
 	if err != nil {
 		return c.JSON(500, &models.Response{
 			Status:  1,
@@ -23,7 +23,6 @@ func GetLastAction(c echo.Context) error {
 	}
 
 	req.Header.Set("Cookie", "auth-key=bomba;token="+token)
-	req.Header.Set("command-name", "get-last-actions")
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded; param=value")
 
 	client := http.Client{}

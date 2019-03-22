@@ -31,7 +31,7 @@ func main() {
 		fmt.Println("Echo - inizializzo ECHO")
 		e = echo.New()
 
-		fmt.Println("Echo - Carico middlware")
+		fmt.Println("Echo - Carico middleware")
 		e.Use(middleware.Recover())
 
 		fmt.Println("Echo - Carico risorse statiche")

@@ -52,9 +52,16 @@ export default {
   components: {
     LoginForm
   },
+  data: function() {
+    return {
+      errorLoginMessage: ""
+    };
+  },
   methods: {
     login: function(payload) {
-      this.$store.dispatch("login", payload);
+      this.$store.dispatch("login", payload).then(() => {
+        this.$router.push({ name: "home" });
+      });
     }
   },
   mounted() {

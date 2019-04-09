@@ -3,6 +3,8 @@ import Vuex from "vuex";
 
 import router from "./router";
 
+import utility from "./utility";
+
 import axios from "axios";
 
 Vue.use(Vuex);
@@ -111,7 +113,7 @@ export default new Vuex.Store({
 		 * @returns {Boolean} 	True se impostato altrimenti false
 		 */
 		checkToken: function() {
-			if (this.state.user.token != null) {
+			if (this.state.user.token != null && this.state.user.token != "" && this.state.user.token != ".") {
 				return true;
 			}
 			return false;
@@ -132,6 +134,9 @@ export default new Vuex.Store({
 					if (result.data && result.data.response.success && result.data.data) {
 						this.commit("getLastActionsSuccess", result.data.data);
 					} else {
+						if (utility.checkTokenIsExpired(result.data.response.message, result.data.response.status)) {
+							router.push({name: "login"});
+						}
 						this.commit("getLastActionsFailed", result.data.response.message);
 					}
 				})
@@ -145,23 +150,27 @@ export default new Vuex.Store({
 		 * @param {object} payload
 		 */
 		login: function(context, payload) {
-			if (this.state.user.attemptLogin.requestLoading) {
-				return;
-			}
-			context.commit("loginRequestLoading");
-			axios
-				.post("/login", payload)
-				.then(result => {
-					if (result.data && result.data.response.success && result.data.data) {
-						this.commit("userLoginSuccess", result.data);
-						router.push({name: "home"});
-					} else {
-						this.commit("userLoginFailed", result.data.response.message);
-					}
-				})
-				.catch(() => {
-					this.commit("userLoginError");
-				});
+			return new Promise((resolve, reject) => {
+				if (this.state.user.attemptLogin.requestLoading) {
+					reject();
+				}
+				context.commit("loginRequestLoading");
+				axios
+					.post("/login", payload)
+					.then(result => {
+						if (result.data && result.data.response.success && result.data.data) {
+							this.commit("userLoginSuccess", result.data);
+							resolve();
+						} else {
+							this.commit("userLoginFailed", result.data.response.message);
+							reject();
+						}
+					})
+					.catch(() => {
+						this.commit("userLoginError");
+						reject();
+					});
+			});
 		},
 		/**
 		 * Si occupa di impostare il token di autenticazione

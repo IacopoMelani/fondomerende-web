@@ -10,6 +10,9 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 Vue.use(VueAxios, axios);
 
+// Utility
+import utility from "./utility";
+
 // BOOTSTRAP-VUE
 import BootstrapVue from "bootstrap-vue";
 Vue.use(BootstrapVue);
@@ -26,5 +29,6 @@ axios.defaults.withCredentials = true;
 new Vue({
 	router,
 	store,
+	utility,
 	render: h => h(App)
 }).$mount("#app");

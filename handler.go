@@ -14,7 +14,6 @@ import (
 func main() {
 
 	var e *echo.Echo
-
 	var wg sync.WaitGroup
 
 	wg.Add(2)

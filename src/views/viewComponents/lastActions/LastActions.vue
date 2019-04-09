@@ -1,6 +1,7 @@
 <template>
   <b-container fluid>
     <b-row>
+      <b-col class="last-action-label" cols="12">ultime azioni</b-col>
       <b-col class="actions-scrollable" cols="12">
         <b-list-group>
           <b-list-group-item

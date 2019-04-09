@@ -21,7 +21,6 @@
       </b-col>
       <b-col class="centered" cols="5">
         <b-row>
-          <b-col class="last-action-label" cols="12">ultime azioni</b-col>
           <b-col cols="12">
             <LastActions></LastActions>
           </b-col>
@@ -61,11 +60,19 @@ export default {
   components: {
     LastActions
   },
+  data: function() {
+    return {
+      getLastActionsId: undefined
+    };
+  },
   mounted: function() {
     this.$store.dispatch("getLastActions");
-    setInterval(() => {
+    this.getLastActionsId = setInterval(() => {
       this.$store.dispatch("getLastActions");
     }, 5000);
+  },
+  destroyed: function() {
+    clearInterval(this.getLastActionsId);
   }
 };
 </script>

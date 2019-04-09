@@ -14,7 +14,7 @@ func GetLastAction(c echo.Context) error {
 
 	config := config.GetInstance()
 
-	token := c.Request().Header.Get("token")
+	//token := c.Request().Header.Get("token")
 
 	URLRequest := config.GetRemoteURL()
 
@@ -27,7 +27,7 @@ func GetLastAction(c echo.Context) error {
 		})
 	}
 
-	req.Header.Set("Cookie", "auth-key="+config.RemoteAuthKey+";token="+token)
+	req.Header.Set("Cookie", "auth-key="+config.RemoteAuthKey+";user-token=")
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded; param=value")
 
 	client := http.Client{}

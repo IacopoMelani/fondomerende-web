@@ -22,6 +22,21 @@ body {
   overflow: hidden;
 }
 
+#scroll::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+#scroll::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+#scroll::-webkit-scrollbar-thumb {
+  border-radius: 25%;
+  background-color: transparent;
+}
+
 @import url("./assets/css/main.css");
 </style>
 

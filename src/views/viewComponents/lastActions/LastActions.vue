@@ -23,6 +23,10 @@
   overflow: auto;
   padding: 0;
 }
+.last-action-label {
+  justify-content: center;
+  margin-bottom: 15px;
+}
 </style>
 
 <script>

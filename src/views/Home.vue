@@ -2,9 +2,7 @@
   <b-container fluid>
     <b-row>
       <b-col class="centered actions" cols="5">
-        <b-row>
-          <b-col cols="12">ciao</b-col>
-        </b-row>
+        <Actions></Actions>
       </b-col>
       <b-col class="centered itembar" cols="2">
         <ItemBar></ItemBar>
@@ -22,17 +20,19 @@
 
 <style scoped>
 .actions {
-  background: linear-gradient(to right, whitesmoke, azure);
+  background: linear-gradient(to right, white, azure);
+  justify-content: center;
 }
-.centered {
+white .centered {
   justify-content: center;
 }
 .info {
-  background: linear-gradient(to right, azure, whitesmoke);
+  background: linear-gradient(to right, azure, white);
+  justify-content: center;
 }
 .itembar {
-  width: 50% !important;
   background-color: azure;
+  justify-content: center;
 }
 .last-action-label {
   justify-content: center;
@@ -40,11 +40,13 @@
 </style>
 
 <script>
+import Actions from "./viewComponents/Actions/Actions";
 import ItemBar from "../componets/ItemBar";
 import LastActions from "./viewComponents/lastActions/LastActions";
 export default {
   name: "home",
   components: {
+    Actions,
     ItemBar,
     LastActions
   },

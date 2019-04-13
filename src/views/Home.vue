@@ -1,25 +1,15 @@
 <template>
   <b-container fluid>
     <b-row>
-      <b-col class="centered" cols="6">
+      <b-col class="centered actions" cols="5">
         <b-row>
           <b-col cols="12">ciao</b-col>
         </b-row>
       </b-col>
-      <b-col class="centered" cols="1">
-        <ul class="menu">
-          <li>
-            <v-icon name="sync" scale="2" spin/>
-          </li>
-          <li>
-            <v-icon name="comment" scale="2"/>
-          </li>
-          <li>
-            <v-icon name="code-branch" scale="2"/>
-          </li>
-        </ul>
+      <b-col class="centered itembar" cols="2">
+        <ItemBar></ItemBar>
       </b-col>
-      <b-col class="centered" cols="5">
+      <b-col class="centered info" cols="5">
         <b-row>
           <b-col cols="12">
             <LastActions></LastActions>
@@ -31,33 +21,31 @@
 </template>
 
 <style scoped>
-li {
-  margin: 15px 0;
-}
-ul {
-  list-style-type: none;
+.actions {
+  background: linear-gradient(to right, whitesmoke, azure);
 }
 .centered {
   justify-content: center;
 }
+.info {
+  background: linear-gradient(to right, azure, whitesmoke);
+}
+.itembar {
+  width: 50% !important;
+  background-color: azure;
+}
 .last-action-label {
   justify-content: center;
 }
-.menu {
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 </style>
+
 <script>
+import ItemBar from "../componets/ItemBar";
 import LastActions from "./viewComponents/lastActions/LastActions";
 export default {
   name: "home",
   components: {
+    ItemBar,
     LastActions
   },
   data: function() {

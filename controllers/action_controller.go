@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo"
+	"github.com/labstack/echo-contrib/session"
 )
 
 // GetLastAction - metodo che richiama il servizio remoto per richiedere le ultime azioni
@@ -14,7 +15,7 @@ func GetLastAction(c echo.Context) error {
 
 	config := config.GetInstance()
 
-	//token := c.Request().Header.Get("token")
+	token := c.Request().Header.Get("token")
 
 	URLRequest := config.GetRemoteURL()
 
@@ -27,8 +28,15 @@ func GetLastAction(c echo.Context) error {
 		})
 	}
 
-	req.Header.Set("Cookie", "auth-key="+config.RemoteAuthKey+";user-token=")
-	req.Header.Set("Content-Type", "application/x-www-form-urlencoded; param=value")
+	sess, _ := session.Get("Session", c)
+	if sess != nil && sess.Values["PHPSESSID"] != nil {
+		setCookie(req, "PHPSESSID", sess.Values["PHPSESSID"].(string))
+	}
+
+	setCookie(req, "auth-key", config.RemoteAuthKey)
+	setCookie(req, "user-token", token)
+
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded; param=value;charset=UTF-8")
 
 	client := http.Client{}
 	res, err := client.Do(req)

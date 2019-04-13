@@ -6,7 +6,9 @@ import (
 	"fondomerende-web/controllers"
 	"sync"
 
+	"github.com/gorilla/sessions"
 	"github.com/labstack/echo"
+	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/middleware"
 	"github.com/subosito/gotenv"
 )
@@ -32,6 +34,7 @@ func main() {
 
 		fmt.Println("Echo - Carico middleware")
 		e.Use(middleware.Recover())
+		e.Use(session.Middleware(sessions.NewCookieStore([]byte("secret"))))
 
 		fmt.Println("Echo - Carico risorse statiche")
 		e.Static("*", "dist/")

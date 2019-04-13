@@ -29,7 +29,7 @@
 }
 .logo-backgroud {
   align-items: center;
-  background-color: antiquewhite;
+  background: linear-gradient(azure, whitesmoke);
   border-radius: 50%;
   display: flex;
   height: 450px;

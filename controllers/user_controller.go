@@ -8,7 +8,9 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/gorilla/sessions"
 	"github.com/labstack/echo"
+	"github.com/labstack/echo-contrib/session"
 )
 
 // Login - metodo per richiamare il servizio remoto di login
@@ -34,8 +36,6 @@ func Login(c echo.Context) error {
 	form.Add("name", body["username"].(string))
 	form.Add("password", body["password"].(string))
 
-	//jsonValue, _ := json.Marshal(body)
-
 	URLRequest := config.GetRemoteURL()
 
 	req, err := http.NewRequest("POST", URLRequest+"/process-request.php", bytes.NewBufferString(form.Encode()))
@@ -48,8 +48,9 @@ func Login(c echo.Context) error {
 		})
 	}
 
-	req.Header.Set("Cookie", "auth-key="+config.RemoteAuthKey)
-	req.Header.Set("Content-Type", "application/x-www-form-urlencoded; param=value")
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded; param=value;charset=UTF-8")
+
+	setCookie(req, "auth-key", config.RemoteAuthKey)
 
 	client := &http.Client{}
 
@@ -64,6 +65,8 @@ func Login(c echo.Context) error {
 
 	defer res.Body.Close()
 
+	setSession(c, res)
+
 	var httpResponseData models.HTTPResponse
 
 	if err := json.NewDecoder(res.Body).Decode(&httpResponseData); err != nil {
@@ -75,4 +78,24 @@ func Login(c echo.Context) error {
 	}
 
 	return c.JSON(200, httpResponseData)
+}
+
+// Imposta la sessione se trova nei cookie della response il PHPSESSID
+func setSession(c echo.Context, r *http.Response) {
+
+	for _, cookie := range r.Cookies() {
+
+		if cookie.Name == "PHPSESSID" {
+
+			sess, _ := session.Get("Session", c)
+			sess.Options = &sessions.Options{
+				Path:     "*",
+				MaxAge:   60 * 3,
+				HttpOnly: true,
+			}
+			sess.Values["PHPSESSID"] = cookie.Value
+
+			sess.Save(c.Request(), c.Response())
+		}
+	}
 }

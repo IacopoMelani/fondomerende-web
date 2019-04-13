@@ -41,7 +41,9 @@ func main() {
 
 		fmt.Println("Echo - Inizializzo rotte")
 		e.GET("/getLastActions", controllers.GetLastAction)
+		e.GET("/getUserData", controllers.GetUserData)
 		e.POST("/login", controllers.Login)
+
 	}()
 
 	wg.Wait()

@@ -17,7 +17,7 @@ func GetMainData(c echo.Context) error {
 
 	token := c.Request().Header.Get("token")
 
-	req, err := http.NewRequest("GET", config.GetRemoteURL()+"process-request.php?command-name=get-main-view-data", nil)
+	req, err := http.NewRequest("GET", config.GetRemoteURL()+"/process-request.php?command-name=get-main-view-data", nil)
 	if err != nil {
 		return c.JSON(500, models.Response{
 			Status:  1,
@@ -26,7 +26,7 @@ func GetMainData(c echo.Context) error {
 		})
 	}
 
-	sess, _ := session.Get("Sessions", c)
+	sess, _ := session.Get("Session", c)
 	if sess != nil && sess.Values["PHPSESSID"] != nil {
 		setCookie(req, "PHPSESSID", sess.Values["PHPSESSID"].(string))
 	}

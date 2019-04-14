@@ -59,13 +59,13 @@ export default {
   },
   methods: {
     login: function(payload) {
-      this.$store.dispatch("login", payload).then(() => {
+      this.$store.dispatch("user/login", payload).then(() => {
         this.$router.push({ name: "home" });
       });
     }
   },
   mounted() {
-    this.$store.dispatch("checkToken").then(result => {
+    this.$store.dispatch("user/checkToken").then(result => {
       if (result) {
         router.push({ name: "home" });
       }

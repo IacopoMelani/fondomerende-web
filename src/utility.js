@@ -1,9 +1,9 @@
-import store from "./store";
+import store from "./stores/store";
 
 export default {
 	checkTokenIsExpired: function(message, code) {
 		if (message == this.messagetokenExpired && code == this.codeTokenExpired) {
-			store.commit("setToken", ".");
+			store.commit("user/setToken", ".");
 			return true;
 		}
 		return false;

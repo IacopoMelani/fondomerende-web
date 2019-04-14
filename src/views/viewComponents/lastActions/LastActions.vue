@@ -34,7 +34,7 @@ export default {
   name: "LastAction",
   computed: {
     actions() {
-      return this.$store.state.actions.lastActionList;
+      return this.$store.state.action.lastActionList;
     }
   },
   data: function() {

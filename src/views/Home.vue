@@ -9,6 +9,7 @@
       </b-col>
       <b-col class="centered info" cols="5">
         <b-row>
+          <b-col class="username-label" cols="12">{{this.$store.state.user.username}}</b-col>
           <b-col cols="12">
             <LastActions></LastActions>
           </b-col>
@@ -37,6 +38,10 @@ white .centered {
 .last-action-label {
   justify-content: center;
 }
+.username-label {
+  justify-content: center;
+  margin-top: 10px;
+}
 </style>
 
 <script>
@@ -56,9 +61,9 @@ export default {
     };
   },
   mounted: function() {
-    this.$store.dispatch("getLastActions");
+    this.$store.dispatch("action/getMainViewData");
     this.getLastActionsId = setInterval(() => {
-      this.$store.dispatch("getLastActions");
+      this.$store.dispatch("action/getMainViewData");
     }, 5000);
   },
   destroyed: function() {

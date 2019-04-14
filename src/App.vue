@@ -45,8 +45,9 @@ export default {
   name: "App",
   created() {
     if (localStorage.getItem("token") != null) {
-      this.$store.dispatch("setToken", localStorage.getItem("token"));
+      this.$store.dispatch("user/setToken", localStorage.getItem("token"));
     }
+    this.$store.dispatch("user/getUserData");
   }
 };
 </script>

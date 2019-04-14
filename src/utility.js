@@ -2,7 +2,7 @@ import store from "./stores/store";
 
 export default {
 	checkTokenIsExpired: function(message, code) {
-		if (message == this.messagetokenExpired && code == this.codeTokenExpired) {
+		if (message == this.messagetokenExpired || code == this.codeTokenExpired) {
 			store.commit("user/setToken", ".");
 			return true;
 		}

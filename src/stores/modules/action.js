@@ -123,6 +123,8 @@ export default {
 				.then(result => {
 					if (result.data && result.data.response.success && result.data.data) {
 						context.commit("getMainViewDataSuccess", result.data.data);
+						this.commit("snack/setFund", result.data.data["fund-funds-amount"]);
+						this.commit("user/setFund", result.data.data["user-funds-amount"]);
 					} else {
 						if (utility.checkTokenIsExpired(result.data.response.message, result.data.response.status)) {
 							router.push({name: "login"});

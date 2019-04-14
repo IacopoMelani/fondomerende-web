@@ -18,7 +18,7 @@ func GetToEatAndUserFunds(c echo.Context) error {
 
 	token := c.Request().Header.Get("token")
 
-	req, err := http.NewRequest("GET", config.GetRemoteURL()+"process-request.php?command-name=get-to-eat-and-user-funds", nil)
+	req, err := http.NewRequest("GET", config.GetRemoteURL()+"/process-request.php?command-name=get-to-eat-and-user-funds", nil)
 	if err != nil {
 		return c.JSON(1, models.Response{
 			Status:  1,

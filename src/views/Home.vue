@@ -9,9 +9,17 @@
       </b-col>
       <b-col class="centered info" cols="5">
         <b-row>
-          <b-col class="username-label" cols="12">{{this.$store.state.user.username}}</b-col>
+          <UserFundInfo
+            class="user-info-centered"
+            :username="this.$store.state.user.username"
+            :fund="this.$store.state.snack.fund"
+            :userFund="this.$store.state.user.fund"
+          ></UserFundInfo>
           <b-col cols="12">
-            <LastActions></LastActions>
+            <LastActions class="user-info-centered"></LastActions>
+          </b-col>
+          <b-col cols="12">
+            <SnackList class="user-info-centered"></SnackList>
           </b-col>
         </b-row>
       </b-col>
@@ -29,8 +37,16 @@ white .centered {
 }
 .info {
   background: linear-gradient(to right, azure, white);
+  height: 95vh;
+  justify-content: center;
+  overflow: auto;
+}
+.user-info-centered {
+  align-items: center;
+  display: flex;
   justify-content: center;
 }
+
 .itembar {
   background-color: azure;
   justify-content: center;
@@ -47,27 +63,39 @@ white .centered {
 <script>
 import Actions from "./viewComponents/Actions/Actions";
 import ItemBar from "../componets/ItemBar";
-import LastActions from "./viewComponents/lastActions/LastActions";
+import LastActions from "../componets/LastActions";
+import SnackList from "../componets/SnackList";
+import UserFundInfo from "../componets/UserFundInfo";
 export default {
   name: "home",
   components: {
     Actions,
     ItemBar,
-    LastActions
+    LastActions,
+    SnackList,
+    UserFundInfo
   },
   data: function() {
     return {
-      getLastActionsId: undefined
+      getMainViewDataId: undefined,
+      getToEatAndUserFundId: undefined
     };
   },
   mounted: function() {
+    this.$store.dispatch("user/getUserData");
     this.$store.dispatch("action/getMainViewData");
-    this.getLastActionsId = setInterval(() => {
+    this.$store.dispatch("snack/getToEatAndUserFund");
+
+    this.getMainViewDataId = setInterval(() => {
       this.$store.dispatch("action/getMainViewData");
+    }, 5000);
+
+    this.getToEatAndUserFundId = setInterval(() => {
+      this.$store.dispatch("snack/getToEatAndUserFund");
     }, 5000);
   },
   destroyed: function() {
-    clearInterval(this.getLastActionsId);
+    clearInterval(this.getMainViewDataId);
   }
 };
 </script>

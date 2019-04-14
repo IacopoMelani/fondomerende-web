@@ -9,9 +9,7 @@ export default {
 			requestLoading: false,
 			successResponse: ""
 		},
-		data: {
-			fund: null
-		},
+		fund: 0.0,
 		getUserData: {
 			failedResponse: "",
 			requestLoading: false,
@@ -60,6 +58,14 @@ export default {
 		getUserDataSuccess: function(state, payload) {
 			state.getUserData.requestLoading = false;
 			state.username = payload.user["friendly-name"];
+		},
+		/**
+		 * Mutator per cambiare lo state relativo al fondo dell'utente
+		 * @param {object} state
+		 * @param {float} fund
+		 */
+		setFund: function(state, fund) {
+			state.fund = fund;
 		},
 		/**
 		 * Mutator per cambiare lo state realativo al token

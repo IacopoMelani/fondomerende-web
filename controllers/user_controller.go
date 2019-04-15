@@ -141,7 +141,7 @@ func setSession(c echo.Context, r *http.Response) {
 			sess, _ := session.Get("Session", c)
 			sess.Options = &sessions.Options{
 				Path:     "*",
-				MaxAge:   60 * 3,
+				MaxAge:   60 * 10,
 				HttpOnly: true,
 			}
 			sess.Values["PHPSESSID"] = cookie.Value

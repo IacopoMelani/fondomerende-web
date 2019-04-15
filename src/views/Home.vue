@@ -1,13 +1,13 @@
 <template>
-  <b-container fluid>
+  <b-container fluid class="p-0">
     <b-row>
-      <b-col class="centered actions" cols="5">
-        <Actions></Actions>
-      </b-col>
-      <b-col class="centered itembar" cols="2">
+      <b-col class="centered itembar p-0" cols="12">
         <ItemBar></ItemBar>
       </b-col>
-      <b-col class="centered info" cols="5">
+      <b-col class="centered actions" cols="8">
+        <Actions></Actions>
+      </b-col>
+      <b-col class="centered info" cols="4">
         <b-row>
           <UserFundInfo
             class="user-info-centered"
@@ -29,15 +29,13 @@
 
 <style scoped>
 .actions {
-  background: linear-gradient(to right, white, azure);
   justify-content: center;
 }
 white .centered {
   justify-content: center;
 }
 .info {
-  background: linear-gradient(to right, azure, white);
-  height: 95vh;
+  height: 92vh;
   justify-content: center;
   overflow: auto;
 }
@@ -48,7 +46,7 @@ white .centered {
 }
 
 .itembar {
-  background-color: azure;
+  background-color: #0747a5;
   justify-content: center;
 }
 .last-action-label {

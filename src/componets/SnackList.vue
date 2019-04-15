@@ -9,6 +9,316 @@
             :key="snack['price-per-snack']"
             :variant="getCasualVariant()"
           >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
+          <b-list-group-item
+            v-for="snack in snacks"
+            :key="snack['price-per-snack']"
+            :variant="getCasualVariant()"
+          >{{snack["friendly-name"]}} - qta {{snack.quantity}} - {{snack["price-per-snack"]}}€</b-list-group-item>
         </b-list-group>
       </b-col>
     </b-row>

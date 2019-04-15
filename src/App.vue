@@ -29,12 +29,12 @@ body {
 
 #scroll::-webkit-scrollbar {
   width: 5px;
-  background-color: transparent;
+  background-color: whitesmoke;
 }
 
 #scroll::-webkit-scrollbar-thumb {
   border-radius: 25%;
-  background-color: transparent;
+  background-color: whitesmoke;
 }
 
 @import url("./assets/css/main.css");

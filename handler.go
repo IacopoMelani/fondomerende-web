@@ -13,7 +13,7 @@ import (
 	"github.com/subosito/gotenv"
 )
 
-func main() {
+func main() {	
 
 	var e *echo.Echo
 	var wg sync.WaitGroup

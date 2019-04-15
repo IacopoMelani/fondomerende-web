@@ -1,28 +1,40 @@
 <template>
-  <ul class="menu" id="scroll">
+  <ul
+    class="menu"
+    id="scroll"
+    :class="{jcenter: itemList.length <= 9, 'jspace-between': itemList.length > 9}"
+  >
     <li v-for="item in itemList" :key="item.view">
-      <v-icon :name="item.icon" :scale="item.scale"/>
-      <p>{{item.title}}</p>
+      <v-icon class="icon" :name="item.icon" :scale="item.scale"/>
+      <p class="icon">{{item.title}}</p>
     </li>
   </ul>
 </template>
 
 <style scoped>
 li {
-  margin: 15px 0;
+  margin: 10px 20px;
 }
 ul {
   list-style-type: none;
 }
+.icon {
+  color: whitesmoke;
+}
+.jcenter {
+  justify-content: center;
+}
+
+.jspace-between {
+  justify-content: space-between;
+}
 .menu {
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
+  flex-direction: row;
   margin: 0;
   overflow: auto;
   padding: 0;
-  position: fixed;
+  width: 95vw;
 }
 </style>
 
